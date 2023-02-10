@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="ColorMaker.MainPage">
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior x:Name="StatusBar" StatusBarColor="{StaticResource Black}" />
+    </ContentPage.Behaviors>
+
+    <Grid x:Name="MainGrid" BackgroundColor="Black">
+        <Frame Margin="10,0,10,0" VerticalOptions="Center" CornerRadius="25" HasShadow="True">
+            <VerticalStackLayout Spacing="15" VerticalOptions="Center">
+
+                <Label
+                    TextColor="Black"
+                    FontAttributes="Bold,Italic"
+                    FontSize="Title"
+                    HorizontalTextAlignment="Center" 
+                    Text="Color Maker" />
+
+                <!-- Start Red Slider -->
+                <Label 
+                    TextColor="{StaticResource Gray500}"
+                    Text="Red:" />
+                <Slider
+                    x:Name="RedSlider"
+                    MinimumTrackColor="{StaticResource Secondary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="Slider_ValueChanged" />
+                <!-- End Red Slider -->
+
+                <!-- Start Green Slider -->
+                <Label 
+                    TextColor="{StaticResource Gray500}"
+                    Text="Green:" />
+                <Slider 
+                    x:Name="GreenSlider"
+                    MinimumTrackColor="{StaticResource Secondary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="Slider_ValueChanged" />
+                <!-- End Green Slider -->
+
+                <!-- Start Blue Slider -->
+                <Label 
+                    TextColor="{StaticResource Gray500}"
+                    Text="Blue:" />
+                <Slider 
+                    x:Name="BlueSlider"
+                    MinimumTrackColor="{StaticResource Secondary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="Slider_ValueChanged" />
+                <!-- End Blue Slider -->
+
+                <!-- Start HEX Value -->
+                <Frame CornerRadius="25" 
+                       HorizontalOptions="CenterAndExpand" 
+                       Padding="11"
+                       HasShadow="True"
+                       BorderColor="{StaticResource Gray200}">
+                    <HorizontalStackLayout>
+                        <Label
+                            TextColor="{StaticResource Gray600}"
+                            x:Name="HexLabel"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            Text="HEX Value: #000000" />
+                        <ImageButton 
+                            HeightRequest="25"
+                            WidthRequest="25" 
+                            Margin="10,0,0,0"
+                            HorizontalOptions="End" 
+                            VerticalOptions="Center"
+                            Source="copy.png"
+                            Clicked="ImageButton_Clicked" />
+                    </HorizontalStackLayout>
+                </Frame>
+                <!-- End HEX Value -->
+
+                <!-- Start Generate Random -->
+                <Button 
+                    x:Name="RandomButton"
+                    Background="{StaticResource Primary}"
+                    TextColor="White" 
+                    Text="Generate Random Color"
+                    FontSize="Subtitle"
+                    Padding="11" 
+                    Margin="8" 
+                    CornerRadius="15"
+                    Clicked="RandomButton_Clicked"/>
+                <!-- End Generate Random -->
+
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>
